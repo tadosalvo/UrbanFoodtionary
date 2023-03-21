@@ -9,6 +9,7 @@ import { db } from "../firebase";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+
   const [addPost, setAddPost] = useState(false);
 
   //const [postList, setPostList] = useState([]);
@@ -94,4 +95,7 @@ export default function Home() {
       <button onClick={handleAddPost}> Add Post </button>
     </>
   );
+
+  return <h1>Urban Foodtionary test test</h1>;
+
 }
