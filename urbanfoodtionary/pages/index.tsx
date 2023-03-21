@@ -13,6 +13,7 @@ export default function Home() {
   const [post, setPost] = useState("");
   const [postList, setPostList] = useState({});
 
+  // log of postList
   console.log(postList);
 
   async function handleAddPost() {
