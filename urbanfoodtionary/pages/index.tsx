@@ -5,11 +5,11 @@ import styles from "@/styles/Home.module.css";
 import React, { useState } from "react";
 import { doc, addDoc, collection } from "firebase/firestore";
 import { db } from "../firebase";
+import { useAuth } from "../context/AuthContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
-
   const [addPost, setAddPost] = useState(false);
 
   //const [postList, setPostList] = useState([]);
@@ -23,17 +23,38 @@ export default function Home() {
       description: "test description",
     },
   ]);
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [isLoggingIn, setIsLoggingIn] = useState(true);
+
+  const AuthContext = useAuth();
+
+  //console.log(currentUser);
   // log of postList
   //console.log(postList);
+
+  async function submitHandler() {
+    if (!email || !password) {
+      setError("Please enter email and password");
+      return;
+    }
+    if (isLoggingIn) {
+      try {
+        await AuthContext.login(email, password);
+      } catch (err) {
+        setError("Incorrect email or password");
+      }
+      return;
+    }
+    await AuthContext.signup(email, password);
+  }
 
   async function handleAddPost() {
     if (!name || !description) {
       return;
     }
-    // const newKey =
-    //   Object.keys(postList).length === 0
-    //     ? 1
-    //     : Math.max(Object.keys(postList).length) + 1;
 
     const updatePosts = [
       ...posts,
@@ -60,6 +81,31 @@ export default function Home() {
   return (
     <>
       <h1>Urban Foodtionary</h1>
+
+      <h1>Login</h1>
+
+      <div>
+        <div>
+          <input
+            type="text"
+            placeholder="Email Address"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </div>
+
+        <div>
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
+      </div>
+
+      <button onClick={submitHandler}>Submit</button>
+
       <div>
         <input
           type="text"
@@ -97,5 +143,4 @@ export default function Home() {
   );
 
   return <h1>Urban Foodtionary test test</h1>;
-
 }
