@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
+import React from "react";
 import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.css";
 import React, { useState } from "react";
@@ -10,6 +11,9 @@ import { useAuth } from "../context/AuthContext";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+
+  return <h1>Urban Foodtionary</h1>;
+
   const [addPost, setAddPost] = useState(false);
 
   //const [postList, setPostList] = useState([]);
@@ -143,4 +147,6 @@ export default function Home() {
   );
 
   return <h1>Urban Foodtionary test test</h1>;
+
 }
+
