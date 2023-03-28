@@ -132,13 +132,6 @@ export default function Home() {
         </div>
       ))}
 
-      {/* 
-      <>
-        {Object.keys(postList).map((post, i) => {
-          return <div key={i}>{postList[post as keyof typeof postList]}</div>;
-        })}
-      </> */}
-
       <button onClick={handleAddPost}> Add Post </button>
     </>
   );
