@@ -138,20 +138,9 @@ export default function Home() {
       <Head>
       <title>Urban Foodtionary</title>
       </Head>
-      <Landing />
+      {/* <Landing /> */}
     </div>
       
     </>
   );
 }
-
-    <div>
-      <Head>
-      <title>Urban Foodtionary</title>
-      </Head>
-      <Landing />
-    </div>
-  
-  )
-}
-
