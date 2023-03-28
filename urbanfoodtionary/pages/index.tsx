@@ -5,7 +5,6 @@ import { Inter } from "next/font/google"
 import Landing from "./api/components/landing"
 
 
-
 export default function Home() {
   return (
     <div>
