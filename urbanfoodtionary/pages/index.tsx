@@ -133,6 +133,25 @@ export default function Home() {
       ))}
 
       <button onClick={handleAddPost}> Add Post </button>
+      
+    <div>
+      <Head>
+      <title>Urban Foodtionary</title>
+      </Head>
+      <Landing />
+    </div>
+      
     </>
   );
 }
+
+    <div>
+      <Head>
+      <title>Urban Foodtionary</title>
+      </Head>
+      <Landing />
+    </div>
+  
+  )
+}
+
