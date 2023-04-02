@@ -2,13 +2,16 @@ import Head from "next/head";
 import Image from "next/image";
 import React from "react";
 import { Inter } from "next/font/google";
+import Link from "next/link";
+import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai"
+import React, { useState, useEffect } from "react"
 import styles from "@/styles/Home.module.css";
-import { useState } from "react";
 import { doc, addDoc, collection } from "firebase/firestore";
 import { db } from "../firebase";
 import { useAuth } from "../context/AuthContext";
 import Navbar from "@/components/navbar";
 import Landing from "@/components/landing";
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -86,8 +89,8 @@ export default function Home() {
   return (
     <>
       <h1>Urban Foodtionary</h1>
-
-      <h1>Login</h1>
+    
+      <h2>Login</h2>
 
       <div>
         <div>
