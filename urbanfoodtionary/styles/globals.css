@@ -1,12 +1,11 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-*{
-    font-family: 'Open Sans', sans-serif;
+* {
+  font-family: "Montserrat", sans-serif;
 }
 
 .custom-img {
-  background-image: url('https://unsplash.com/photos/6uTQmtqcAzs?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink');
+  background-image: url("https://unsplash.com/photos/6uTQmtqcAzs?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink");
 }
