@@ -7,15 +7,12 @@ import { useAuth } from "../context/AuthContext";
 import Link from "next/link";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai"
 import React, { useState, useEffect } from "react"
-import Landing from "../components/landing"
+import Navbar from "@/components/navbar";
+import Landing from "@/components/landing";
 
+const inter = Inter({ subsets: ["latin"] });
 
-
-
-
-export default function Home() { 
-
-
+export default function Home() {
   const [addPost, setAddPost] = useState(false);
 
   //const [postList, setPostList] = useState([]);
@@ -41,6 +38,7 @@ export default function Home() {
   // log of postList
   //console.log(postList);
 
+  // function that handles submit requests
   async function submitHandler() {
     if (!email || !password) {
       setError("Please enter email and password");
@@ -57,6 +55,7 @@ export default function Home() {
     await AuthContext.signup(email, password);
   }
 
+  // function that handles add posts to firebase
   async function handleAddPost() {
     if (!name || !description) {
       return;
@@ -82,17 +81,11 @@ export default function Home() {
     };
     //const postRef = doc(db, "posts");
     await addDoc(collection(db, "posts"), test);
-
   }
 
   return (
     <>
-      <div>
-        <Head>
-          <title>Urban Foodtionary</title>
-        </Head>
-        <Landing />
-      </div>
+      <h1>Urban Foodtionary</h1>
 
     
       <h2>Login</h2>
@@ -145,7 +138,12 @@ export default function Home() {
       ))}
 
       <button onClick={handleAddPost}> Add Post </button>
-  
-</>
+
+      <div>
+        <Head>
+          <title>Urban Foodtionary</title>
+        </Head>
+      </div>
+    </>
   );
 }
