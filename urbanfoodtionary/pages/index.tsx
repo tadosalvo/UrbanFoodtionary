@@ -87,7 +87,6 @@ export default function Home() {
   return (
     <>
       <h1>Urban Foodtionary</h1>
-
       <h2>Login</h2>
 
       <div>
