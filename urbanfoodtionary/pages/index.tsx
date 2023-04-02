@@ -7,6 +7,8 @@ import { useState } from "react";
 import { doc, addDoc, collection } from "firebase/firestore";
 import { db } from "../firebase";
 import { useAuth } from "../context/AuthContext";
+import Navbar from "@/components/navbar";
+import Landing from "@/components/landing";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -36,6 +38,7 @@ export default function Home() {
   // log of postList
   //console.log(postList);
 
+  // function that handles submit requests
   async function submitHandler() {
     if (!email || !password) {
       setError("Please enter email and password");
@@ -52,6 +55,7 @@ export default function Home() {
     await AuthContext.signup(email, password);
   }
 
+  // function that handles add posts to firebase
   async function handleAddPost() {
     if (!name || !description) {
       return;
@@ -133,14 +137,12 @@ export default function Home() {
       ))}
 
       <button onClick={handleAddPost}> Add Post </button>
-      
-    <div>
-      <Head>
-      <title>Urban Foodtionary</title>
-      </Head>
-      {/* <Landing /> */}
-    </div>
-      
+
+      <div>
+        <Head>
+          <title>Urban Foodtionary</title>
+        </Head>
+      </div>
     </>
   );
 }
