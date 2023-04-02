@@ -1,14 +1,16 @@
 import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "next/font/google";
-import { doc, addDoc, collection } from "firebase/firestore";
-import { db } from "../firebase";
-import { useAuth } from "../context/AuthContext";
 import Link from "next/link";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai"
 import React, { useState, useEffect } from "react"
+import styles from "@/styles/Home.module.css";
+import { doc, addDoc, collection } from "firebase/firestore";
+import { db } from "../firebase";
+import { useAuth } from "../context/AuthContext";
 import Navbar from "@/components/navbar";
 import Landing from "@/components/landing";
+
 
 const inter = Inter({ subsets: ["latin"] });
 
