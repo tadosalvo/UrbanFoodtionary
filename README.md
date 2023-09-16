@@ -1,1 +1,3 @@
 # UrbanFoodtionary
+
+npm run dev
