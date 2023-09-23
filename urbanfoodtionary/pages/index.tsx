@@ -1,20 +1,15 @@
 import { useState } from "react";
 import Navbar from "../components/NavBar";
+import Definitions from "@/components/Definitions";
 
 const HomePage: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [definitions, setDefinitions] = useState([
-    { term: "Term 1", definition: "Definition for term 1..." },
-    { term: "Term 2", definition: "Definition for term 2..." },
-    // ... you can add more sample definitions
-  ]);
-  const [filteredDefinitions, setFilteredDefinitions] = useState(definitions);
 
   const handleSearch = () => {
-    const results = definitions.filter((def) =>
-      def.term.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-    setFilteredDefinitions(results);
+    // const results = definitions.filter((def) =>
+    //   def.term.toLowerCase().includes(searchTerm.toLowerCase())
+    // );
+    // setFilteredDefinitions(results);
   };
 
   return (
@@ -33,14 +28,7 @@ const HomePage: React.FC = () => {
           />
           <button onClick={handleSearch}>Search</button>
         </div>
-        <div className="example-definitions">
-          {filteredDefinitions.map((def, index) => (
-            <div className="definition" key={index}>
-              <h3>{def.term}</h3>
-              <p>{def.definition}</p>
-            </div>
-          ))}
-        </div>
+        <Definitions />
       </main>
     </div>
   );
