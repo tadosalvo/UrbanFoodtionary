@@ -1,18 +1,17 @@
-import "../styles/globals.css";
-import Navbar from "../components/navbar";
-import type { AppProps } from "next/app";
-import Landing from "@/components/landing";
-import Layout from "@/components/Layout";
+import React from "react";
+import { AppProps } from "next/app";
+import "../styles/globals.css"; // Assuming you have a global CSS file
 
-function App({ Component, pageProps }: AppProps) {
+const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
   return (
-    <>
-      <Navbar />
-      <Landing>
-        <Component {...pageProps} />
-      </Landing>
-    </>
+    <div className="app-container">
+      <Component {...pageProps} />
+      {/* You can add a footer or any other global components here */}
+      <footer>
+        <p> UrbanFoodtionary © 2023</p>
+      </footer>
+    </div>
   );
-}
+};
 
-export default App;
+export default MyApp;

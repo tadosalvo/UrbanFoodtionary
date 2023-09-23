@@ -1,89 +1,51 @@
-import React, { useState } from "react";
-import Link from "next/link";
-import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
-import { useEffect } from "react";
-
-const Navbar = () => {
-  const [nav, setNav] = useState(false);
-  const [color, setColor] = useState("transparent");
-  const [textColor, setTextColor] = useState("white");
-
-  const handleNav = () => {
-    setNav(!nav);
-  };
-
-  useEffect(() => {
-    const changeColor = () => {
-      if (window.scrollY >= 90) {
-        setColor("#ffffff");
-        setTextColor("#000000");
-      } else {
-        setColor("transparent");
-        setTextColor("#ffffff");
-      }
-    };
-    window.addEventListener("scroll", changeColor);
-  }, []);
-
+const Navbar: React.FC = () => {
   return (
-    <div
-      style={{ backgroundColor: `${color}` }}
-      className="fixed left-0 top-0 w-full z-10 ease-in duration-300"
-    >
-      <div className="max-w-[1240px] m-auto flex justify-between items-center p-4 text-white">
-        <Link href="/">
-          <h1 style={{ color: `${textColor}` }} className="font-bold text-4xl">
-            Urban Foodtionary
-          </h1>
-        </Link>
-        <ul style={{ color: `${textColor}` }} className="hidden sm:flex">
-          <li className="p-4">
-            <Link href="/">Home</Link>
-          </li>
-          <li className="p-4">
-            <Link href="/browse">Browse</Link>
-          </li>
-          <li className="p-4">
-            <Link href="/contact">Contact</Link>
+    <nav className="navbar">
+      <div className="navbar-content">
+        <ul className="nav-links">
+          <li>
+            <a href="/">Home</a>
           </li>
           <li>
-            <Link href="/#gallery">Gallery</Link>
+            <a href="/submit">Submit a Term</a>
+          </li>
+          <li>
+            <a href="/about">About</a>
           </li>
         </ul>
-
-        {/*Mobile Button*/}
-        <div onClick={handleNav} className="block sm:hidden z-10">
-          {nav ? (
-            <AiOutlineClose size={20} style={{ color: `${textColor}` }} />
-          ) : (
-            <AiOutlineMenu size={20} style={{ color: `${textColor}` }} />
-          )}
-        </div>
-        {/*Mobile Menu*/}
-        <div
-          className={
-            nav
-              ? "sm:hidden absolute top-0 left-0 right-0 bottom-0 flex justify-center items-center w-full h-screen bg-black text-center ease-in duration-300"
-              : "sm:hidden absolute top-0 left-0 right-0 bottom-0 flex justify-center items-center w-full h-screen bg-black text-center ease-in duration-300"
-          }
-        >
-          <ul>
-            <li className="p-4 text-4xl hover:text-gray-500">
-              <Link href="/">Home</Link>
-            </li>
-            <li className="p-4 text-4xl hover:text-gray-500">
-              <Link href="/browse">Browse</Link>
-            </li>
-            <li className="p-4 text-4xl hover:text-gray-500">
-              <Link href="/contact">Contact</Link>
-            </li>
-            <li className="p-4 text-4xl hover:text-gray-500">
-              <Link href="/#gallery">Gallery</Link>
-            </li>
-          </ul>
-        </div>
       </div>
-    </div>
+      <style jsx>{`
+        .navbar {
+          background-color: #333;
+          color: #fff;
+        }
+        .navbar-content {
+          max-width: 1200px;
+          margin: 0 auto;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 15px 30px;
+        }
+        .logo {
+          font-size: 1.5em;
+          font-weight: bold;
+        }
+        .nav-links {
+          list-style: none;
+          display: flex;
+          gap: 20px;
+        }
+        .nav-links a {
+          color: #fff;
+          text-decoration: none;
+          transition: color 0.3s ease;
+        }
+        .nav-links a:hover {
+          color: #0070f3;
+        }
+      `}</style>
+    </nav>
   );
 };
 
