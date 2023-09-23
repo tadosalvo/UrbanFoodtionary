@@ -18,13 +18,13 @@ const HomePage: React.FC = () => {
   };
 
   return (
-    <div className="container">
+    <div>
       <Navbar />
-      <header>
-        <h1>UrbanFoodtionary</h1>
-      </header>
       <main>
         <div className="search-section">
+          <header>
+            <h1>UrbanFoodtionary</h1>
+          </header>
           <input
             type="text"
             placeholder="Search for a term..."
@@ -34,7 +34,6 @@ const HomePage: React.FC = () => {
           <button onClick={handleSearch}>Search</button>
         </div>
         <div className="example-definitions">
-          <h2>Search Results</h2>
           {filteredDefinitions.map((def, index) => (
             <div className="definition" key={index}>
               <h3>{def.term}</h3>
